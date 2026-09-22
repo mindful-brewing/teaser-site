@@ -490,9 +490,67 @@
     .signup-form { flex-direction: column; }
     .signup-input, .signup-button { width: 100%; }
   }
+
+  /* ---------- POUR (scroll-linked beer fill) ---------- */
+  .pour-fill {
+    position: fixed;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    clip-path: inset(calc(100% - var(--pour, 0%)) 0 0 0);
+    background: linear-gradient(
+      to top,
+      rgba(184, 134, 11, 0.30) 0%,
+      rgba(184, 134, 11, 0.16) 35%,
+      rgba(184, 134, 11, 0.05) 65%,
+      rgba(184, 134, 11, 0) 100%
+    );
+    transition: clip-path 0.1s linear;
+  }
+  .pour-foam {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% - var(--pour, 0%));
+    height: 3px;
+    background: linear-gradient(to right, transparent, rgba(244, 239, 230, 0.55), transparent);
+    filter: blur(1px);
+  }
+  .pour-bubble {
+    position: absolute;
+    left: var(--bx, 20%);
+    bottom: 0;
+    width: var(--bs, 6px);
+    height: var(--bs, 6px);
+    border-radius: 50%;
+    background: rgba(244, 239, 230, 0.35);
+    opacity: calc(var(--pour, 0%) / 100%);
+    animation: bubble-rise var(--bdur, 7s) linear infinite;
+    animation-delay: var(--bdelay, 0s);
+  }
+  @keyframes bubble-rise {
+    from { transform: translateY(0); opacity: 0; }
+    10% { opacity: 0.5; }
+    90% { opacity: 0.3; }
+    to { transform: translateY(-90vh); opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pour-fill, .pour-bubble { transition: none; animation: none; }
+  }
 </style>
 </head>
 <body>
+
+<!-- POUR (scroll-linked beer fill background) -->
+<div class="pour-fill" aria-hidden="true">
+  <div class="pour-foam"></div>
+  <div class="pour-bubble" style="--bx:12%; --bs:5px; --bdur:6.5s; --bdelay:0s;"></div>
+  <div class="pour-bubble" style="--bx:28%; --bs:7px; --bdur:8s; --bdelay:1.5s;"></div>
+  <div class="pour-bubble" style="--bx:47%; --bs:4px; --bdur:5.5s; --bdelay:0.7s;"></div>
+  <div class="pour-bubble" style="--bx:65%; --bs:6px; --bdur:7.2s; --bdelay:2.3s;"></div>
+  <div class="pour-bubble" style="--bx:82%; --bs:5px; --bdur:6.8s; --bdelay:3.1s;"></div>
+  <div class="pour-bubble" style="--bx:93%; --bs:3px; --bdur:5s; --bdelay:1s;"></div>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -594,7 +652,7 @@
 <section class="signup">
   <div class="wrap signup-inner">
     <span class="kicker">STAY IN THE LOOP</span>
-    <h2 class="serif signup-heading">最初の「きっかけ」を、<br>いちばん先に。</h2>
+    <h2 class="serif signup-heading">最初の<span style="white-space:nowrap;">「きっかけ」</span>を、<br>いちばん先に。</h2>
     <p class="signup-sub">オープンの知らせを、いちばんにお届けします。<br>小さな遭遇は、もしかしたらここから始まるかもしれません。</p>
     <form id="signup-form" class="signup-form" novalidate>
       <label for="signup-email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">メールアドレス登録</label>
@@ -621,6 +679,36 @@
     <div class="footer-note">小田原・南町 — coming soon</div>
   </footer>
 </section>
+
+<script>
+(function () {
+  var pourFill = document.querySelector('.pour-fill');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ticking = false;
+
+  function updatePour() {
+    ticking = false;
+    if (!pourFill) return;
+    var doc = document.documentElement;
+    var scrollable = doc.scrollHeight - doc.clientHeight;
+    var progress = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
+    pourFill.style.setProperty('--pour', (progress * 100) + '%');
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(updatePour);
+    }
+  }
+
+  if (!reduceMotion) {
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    updatePour();
+  }
+})();
+</script>
 
 <script>
 (function () {
