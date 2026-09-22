@@ -82,15 +82,20 @@
   /* ---------- HERO ---------- */
   .hero {
     position: relative;
-    padding: 9vh 0 10vh;
+    min-height: 100svh;
+    padding: 9vh 0 4vh;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
   .hero-inner {
     position: relative;
     z-index: 2;
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 40px;
     text-align: center;
   }
@@ -153,14 +158,11 @@
   }
 
   .scroll-cue {
-    position: absolute;
-    left: 50%;
-    bottom: 2.4vh;
-    transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 8px;
+    margin-top: 32px;
     color: var(--rikyu-soft);
   }
   .scroll-cue span {
