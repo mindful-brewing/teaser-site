@@ -349,7 +349,7 @@ h1, h2, h3 { text-wrap: balance; margin: 0; }
 
 /* ---------- SIGNUP ---------- */
 .signup {
-  padding: 13vh 0;
+  padding: 13vh 0 6vh;
   border-top: 1px solid var(--hairline);
   text-align: center;
 }
@@ -417,7 +417,7 @@ h1, h2, h3 { text-wrap: balance; margin: 0; }
 
 /* ---------- CLOSING ---------- */
 .closing {
-  padding: 14vh 0 8vh;
+  padding: 7vh 0 4vh;
   text-align: center;
 }
 .closing-inner {
@@ -425,6 +425,7 @@ h1, h2, h3 { text-wrap: balance; margin: 0; }
   flex-direction: column;
   align-items: center;
   gap: 26px;
+  margin-bottom: 40px;
 }
 .closing-line {
   font-family: var(--font-jp-serif);
@@ -437,24 +438,19 @@ h1, h2, h3 { text-wrap: balance; margin: 0; }
   line-height: 1.9;
 }
 .contact {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
+  font-size: 0.86rem;
+  color: var(--rikyu);
+  line-height: 1.9;
   margin-top: 6px;
 }
-.contact-label {
-  font-size: 0.8rem;
-  color: var(--rikyu);
-}
 .contact a {
-  font-family: var(--font-en-body);
-  font-size: 1.02rem;
+  font-family: inherit;
+  font-size: inherit;
   font-weight: 400;
   color: var(--nagiai);
 }
 footer {
-  padding: 5vh 0 6vh;
+  padding: 3vh 0 6vh;
   border-top: 1px solid var(--hairline);
   display: flex;
   flex-direction: column;
