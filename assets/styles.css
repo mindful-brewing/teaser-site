@@ -377,7 +377,7 @@ h1, h2, h3 { text-wrap: balance; margin: 0; }
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
-  margin-top: 6px;
+  margin-top: -10px;
 }
 .line-button,
 .instagram-button {
