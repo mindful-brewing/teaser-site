@@ -380,7 +380,7 @@ h1, h2, h3 { text-wrap: balance; margin: 0; }
   margin-top: 6px;
 }
 .line-button,
-.whatsapp-button {
+.instagram-button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -392,7 +392,7 @@ h1, h2, h3 { text-wrap: balance; margin: 0; }
   letter-spacing: 0.03em;
   text-decoration: none;
   font-family: inherit;
-  transition: background .2s ease, transform .15s ease;
+  transition: filter .2s ease, transform .15s ease;
 }
 .line-button { background: #06C755; }
 .line-button:hover {
@@ -400,13 +400,15 @@ h1, h2, h3 { text-wrap: balance; margin: 0; }
   color: #fff;
   transform: translateY(-1px);
 }
-.whatsapp-button { background: #25D366; }
-.whatsapp-button:hover {
-  background: #1fba59;
+.instagram-button {
+  background: linear-gradient(135deg, #4f5bd5, #962fbf, #d62976, #fa7e1e, #feda75);
+}
+.instagram-button:hover {
+  filter: brightness(0.92);
   color: #fff;
   transform: translateY(-1px);
 }
-.line-icon, .whatsapp-icon { flex: 0 0 auto; display: block; }
+.line-icon, .instagram-icon { flex: 0 0 auto; display: block; }
 .signup-note {
   font-size: 0.74rem;
   color: var(--rikyu-soft);
