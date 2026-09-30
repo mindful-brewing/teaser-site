@@ -184,6 +184,8 @@ h1, h2, h3 { text-wrap: balance; margin: 0; }
 
 /* ---------- NARRATIVE ---------- */
 .narrative {
+  position: relative;
+  z-index: 1;
   padding: 14vh 0;
   border-top: 1px solid var(--hairline);
 }
@@ -211,10 +213,7 @@ h1, h2, h3 { text-wrap: balance; margin: 0; }
 }
 .narrative .thesis-line {
   margin-top: 18px;
-  font-size: 0.95rem;
-  font-family: var(--font-jp-sans);
   color: var(--rikyu);
-  letter-spacing: 0.04em;
 }
 
 /* ---------- FOUNDER STORY ---------- */
@@ -349,6 +348,8 @@ h1, h2, h3 { text-wrap: balance; margin: 0; }
 
 /* ---------- SIGNUP ---------- */
 .signup {
+  position: relative;
+  z-index: 1;
   padding: 13vh 0 6vh;
   border-top: 1px solid var(--hairline);
   text-align: center;
@@ -417,6 +418,8 @@ h1, h2, h3 { text-wrap: balance; margin: 0; }
 
 /* ---------- CLOSING ---------- */
 .closing {
+  position: relative;
+  z-index: 1;
   padding: 7vh 0 4vh;
   text-align: center;
 }
@@ -486,7 +489,7 @@ footer {
 .pour-fill {
   position: fixed;
   inset: 0;
-  z-index: 3;
+  z-index: 0;
   pointer-events: none;
   clip-path: inset(calc(100% - var(--pour, 0%)) 0 0 0);
   background:
