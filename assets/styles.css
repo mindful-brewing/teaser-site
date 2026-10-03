@@ -218,6 +218,8 @@ h1, h2, h3 { text-wrap: balance; margin: 0; }
 
 /* ---------- FOUNDER STORY ---------- */
 .founder {
+  position: relative;
+  z-index: 1;
   padding: 14vh 0;
   background: var(--kinari-deep);
 }
@@ -316,6 +318,8 @@ h1, h2, h3 { text-wrap: balance; margin: 0; }
 
 /* ---------- THESIS ---------- */
 .thesis {
+  position: relative;
+  z-index: 1;
   background: var(--nagiai);
   color: var(--nagiai-ink);
   padding: 13vh 0;
