@@ -221,7 +221,7 @@ h1, h2, h3 { text-wrap: balance; margin: 0; }
   position: relative;
   z-index: 1;
   padding: 14vh 0;
-  background: rgba(236, 227, 210, 0.93);
+  background: var(--kinari-deep);
 }
 .founder-head {
   text-align: center;
@@ -320,7 +320,7 @@ h1, h2, h3 { text-wrap: balance; margin: 0; }
 .thesis {
   position: relative;
   z-index: 1;
-  background: rgba(15, 99, 107, 0.93);
+  background: var(--nagiai);
   color: var(--nagiai-ink);
   padding: 13vh 0;
 }
